@@ -1,0 +1,14 @@
+[general]
+name=QWC2 Plugin for AcuGIS Cloud
+about=QWC2 Plugin for publishing to AcuGIS Cloud
+category=Web
+tags=project, qgis-web-client
+main=qwc2_app_main.py
+description=Publish QGIS projects to AcuGIS Cloud QWC2
+version=1.1
+qgisMinimumVersion=3.0
+icon=icon.png
+author=AcuGIS
+email=hello@acugis.com
+homepage=https://www.acugis.com/qwc2-qgis-plugin
+repository=https://github.com/AcuGIS/qwc2_qgis_plugin
