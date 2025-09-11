@@ -1,0 +1,1 @@
+# qwc2_qgis_plugin
