@@ -107,6 +107,7 @@ class PublishDialog(QDialog):
     def updateTenants(self):
         server_info = self.config.get(self.server_dropdown.currentText(), {})
         tenants = self.get_tenants(server_info)
+        tenants.sort()
         self.tenant_dropdown.clear()
         self.tenant_dropdown.addItems(tenants)
     
@@ -115,6 +116,7 @@ class PublishDialog(QDialog):
         tenant_name = self.tenant_dropdown.currentText()
         
         themes = self.get_themes(server_info,tenant_name)
+        themes.sort()
         self.theme_dropdown.clear()
         self.theme_dropdown.addItems(themes)
     
@@ -215,6 +217,8 @@ class PublishDialog(QDialog):
 
             response = response.json();
             if response['success']:
+                if map_theme.startswith('scan/'):
+                    map_theme = map_theme[5:]
                 map_url = proto + '://' + server_info['host'] + '/apps/' + response['id'] + '/?t=' + map_theme
                 QMessageBox.information(None, "AcuGIS Cloud QWC2", 'Map published. You can view it at <a href="' + map_url +'">' + map_url + '</a>')
             else:

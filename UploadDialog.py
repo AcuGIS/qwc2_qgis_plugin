@@ -72,7 +72,7 @@ class UploadDialog(QDialog):
 
         # make the dialog open bigger and allow growing
         self.setMinimumSize(260, 210)
-        self.resize(360, 260)  # initial size
+        self.resize(400, 260)  # initial size
         self.setSizeGripEnabled(True)
 
         # let form fields expand
@@ -99,6 +99,7 @@ class UploadDialog(QDialog):
     def updateTenants(self):
         server_info = self.config.get(self.server_dropdown.currentText(), {})
         tenants = self.get_tenants(server_info)
+        tenants.sort()
         self.tenant_dropdown.clear()
         self.tenant_dropdown.addItems(tenants)
 
@@ -160,6 +161,9 @@ class UploadDialog(QDialog):
 
         project_dir = os.path.dirname(project_path)
         try:
+
+            self.resize(400, 450)  # update size for progress bar and log
+
             self.progress_bar.setMaximum(len(file_list))
             self.progress_bar.setVisible(True)
             self.log_output.setVisible(True)
@@ -178,7 +182,7 @@ class UploadDialog(QDialog):
                         for chunk in self.read_in_chunks(f):                                
                             post_values['start'] = offset
                             post_values['bytes'] = chunk
-                            response = self.s.post(proto + '://' + server_info['host'] + '/admin/action/upload.php', data=post_values, timeout=(10, 30));
+                            response = self.s.post(proto + '://' + server_info['host'] + '/admin/action/upload.php', data=post_values);
                             if response.status_code != 200:
                                 raise Exception("Chunk upload failed")
                             offset = offset + len(chunk)
@@ -198,7 +202,7 @@ class UploadDialog(QDialog):
                 self.log_output.setAcceptRichText(True)
                 self.log_output.append(f"✖ Running configure for tenant {tenant_name} ...")
 
-                response = self.s.post(proto + '://' + server_info['host'] + '/admin/action/configs.php', data={'tenant':tenant_name, 'configure':True}, timeout=(10, 30));
+                response = self.s.post(proto + '://' + server_info['host'] + '/admin/action/configs.php', data={'tenant':tenant_name, 'configure':True}, timeout=(10, 120));
                 if response.status_code != 200:
                     raise Exception("Tenant configure failed")
 
