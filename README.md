@@ -1,13 +1,6 @@
-# QGIS QWC2 Login App Plugin
+# QWC2 Plugin for AcuGIS Cloud
 
-![AcuGIS Cloud QWC2 Upload QGIS](docs/_static/Publish.png)
-
-
-
-Menu.png
-Publish.png
-Tenant.png
-Upload.png
+![AcuGIS Cloud QWC2 Upload QGIS](docs/_static/Menu.png)
 
 AcuGIS [QWC2 Login App](https://git.sh8.eu/LymonHead/qwc2_login_app/) Plugin for QGIS is a plugin for tranfering contents of a QGIS Project to a QWC2 Login App tenant.
 
@@ -50,6 +43,10 @@ Plugin location /home/$USER/.local/share/QGIS/QGIS3/profiles/default/python/plug
 
 ![AcuGIS Cloud QWC2 Upload QGIS](docs/_static/Tenant.png)
 
+- Create Tenants via Plugin
+- Select Tenant when Publishing
+
+
 
 ## Upload to QWC2
 
@@ -73,16 +70,6 @@ A success message will be displayed up completion.
 ![AcuGIS Cloud QWC2 Upload QGIS](docs/_static/Publish.png)
 
 
-## Toolbar Icons:
-
-![QWC2 Plugin for QGIS](docs/PluginToolbar.fw.png)
-
-
-## Plugin Menu:
-
-![QWC2 Plugin for QGIS](docs/Menu.png)
-
 ## Use Cases
 
-
-The plugin is generic and can be used for publishing a QGIS Project directory to remote AcuGIS Cloud QWC2 servers.
+The plugin is only for AcuGIS QWC2 hosting services. It will not work with generic QWC2 installation.
