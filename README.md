@@ -2,7 +2,7 @@
 
 ![AcuGIS Cloud QWC2 Upload QGIS](docs/_static/Menu.png)
 
-AcuGIS [QWC2 Login App](https://git.sh8.eu/LymonHead/qwc2_login_app/) Plugin for QGIS is a plugin for tranfering contents of a QGIS Project to a QWC2 Login App tenant.
+The AcuGIS QWC2 plugin is used to publish your QGIS project to AcuGIS Cloud.
 
 ## Features
 
